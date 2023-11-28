@@ -4,7 +4,7 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
 
-application = flask(__name__)
+application = Flask(__name__)
 
 strDataset = "https://raw.githubusercontent.com/nelczezulueta/DATANVI-MCO2/main/telecom_customer_churn.csv"
 
