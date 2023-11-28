@@ -215,4 +215,4 @@ application.layout = dbc.Container(fluid=True, children=[
 ])
 
 if __name__ == '__main__':
-    application.run_server(port = 8051)
+    application.run_server(debug=True)
