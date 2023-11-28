@@ -1,5 +1,4 @@
 from dash import Dash, dcc, html, Input, Output
-from my_dash_app.maindash import app
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
