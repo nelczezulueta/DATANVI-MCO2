@@ -1,9 +1,10 @@
-from dash import Dash, dcc, html, dcc, dash_table, Input, Output, State, MATCH, ALL
+from dash import Dash, dcc, html, dcc, Input, Output
 import dash_bootstrap_components as dbc
 #from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
 import dash
+import dash_core_components as dcc
 
 app = dash.Dash(__name__)
 
@@ -49,8 +50,7 @@ cmpntGraph2 = dcc.Graph(figure=graphData2, id='scatter-plot')
 
 @app.callback(
     Output('pie-chart', 'figure'),
-    [Input('pie-dropdown', 'value')]
-)
+    [Input('pie-dropdown', 'value')])
 
 def update_pie_chart(selected_attribute):
 
@@ -73,8 +73,7 @@ def update_pie_chart(selected_attribute):
 
 @app.callback(
     Output('bar-chart', 'figure'),
-    [Input('bar-dropdown', 'value')]
-)
+    [Input('bar-dropdown', 'value')])
 
 
 def update_bar_chart(selected_category):
@@ -111,8 +110,7 @@ def update_bar_chart(selected_category):
 
 @app.callback(
     Output('tenure-distribution-plot', 'figure'),
-    [Input('churn-status-dropdown', 'value')]
-)
+    [Input('churn-status-dropdown', 'value')])
 
 def update_boxplot(churn_status):
 
@@ -219,4 +217,4 @@ app.layout = dbc.Container(fluid=True, children=[
 ])
 
 if __name__ == '__main__':
-    app.run_server(port = 8051)
+    app.run_server(debug = True)
