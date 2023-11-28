@@ -4,9 +4,8 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
 import dash
-from dash import app
 
-app = dash.Dash(__name__)
+application = dash.Dash(__name__)
 
 strDataset = "https://raw.githubusercontent.com/nelczezulueta/DATANVI-MCO2/main/telecom_customer_churn.csv"
 
@@ -48,7 +47,7 @@ graphData2.update_layout(
 cmpntGraph2 = dcc.Graph(figure=graphData2, id='scatter-plot')
 
 
-@app.callback(
+@application.callback(
     Output('pie-chart', 'figure'),
     [Input('pie-dropdown', 'value')]
 )
@@ -72,7 +71,7 @@ def update_pie_chart(selected_attribute):
     return fig
 
 
-@app.callback(
+@application.callback(
     Output('bar-chart', 'figure'),
     [Input('bar-dropdown', 'value')]
 )
@@ -110,7 +109,7 @@ def update_bar_chart(selected_category):
     )
     return fig
 
-@app.callback(
+@application.callback(
     Output('tenure-distribution-plot', 'figure'),
     [Input('churn-status-dropdown', 'value')]
 )
@@ -149,10 +148,10 @@ graphData5.update_layout(
 
 cmpntGraph5 = dcc.Graph(figure=graphData5, id='churn-treemap')
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-server = app.server
+application = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = application.server
 
-app.layout = dbc.Container(fluid=True, children=[
+application.layout = dbc.Container(fluid=True, children=[
     
     html.Div(cmpntTitle),
     html.Hr(),
@@ -220,4 +219,4 @@ app.layout = dbc.Container(fluid=True, children=[
 ])
 
 if __name__ == '__main__':
-    app.run_server(port = 8051)
+    application.run_server(port = 8051)
