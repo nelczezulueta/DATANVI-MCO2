@@ -1,7 +1,10 @@
 from dash import Dash, dcc, html, Input, Output
+from flask import Flask, render_template
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
+
+application = flask(__name__)
 
 strDataset = "https://raw.githubusercontent.com/nelczezulueta/DATANVI-MCO2/main/telecom_customer_churn.csv"
 
