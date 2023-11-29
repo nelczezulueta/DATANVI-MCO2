@@ -1,4 +1,4 @@
-from dash import Dash, dcc, html, dcc, Input, Output
+from dash import Dash, dcc, html, dcc, Input, Output, callback
 import dash_bootstrap_components as dbc
 #from dash.dependencies import Input, Output
 import plotly.express as px
@@ -48,7 +48,7 @@ graphData2.update_layout(
 cmpntGraph2 = dcc.Graph(figure=graphData2, id='scatter-plot')
 
 
-@app.callback(
+@callback(
     Output('pie-chart', 'figure'),
     [Input('pie-dropdown', 'value')])
 
@@ -71,7 +71,7 @@ def update_pie_chart(selected_attribute):
     return fig
 
 
-@app.callback(
+@callback(
     Output('bar-chart', 'figure'),
     [Input('bar-dropdown', 'value')])
 
@@ -108,7 +108,7 @@ def update_bar_chart(selected_category):
     )
     return fig
 
-@app.callback(
+@callback(
     Output('tenure-distribution-plot', 'figure'),
     [Input('churn-status-dropdown', 'value')])
 
