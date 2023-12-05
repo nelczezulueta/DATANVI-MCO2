@@ -146,7 +146,7 @@ graphData5.update_layout(
 
 cmpntGraph5 = dcc.Graph(figure=graphData5, id='churn-treemap')
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = Dash(__name__, external_stylesheets=[dbc.themes.DARKLY])
 server = app.server
 server.route("/static/styles/styles.css") 
 
