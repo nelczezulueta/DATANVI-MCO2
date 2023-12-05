@@ -24,12 +24,12 @@ dfDataset3 = dfDataset[['Gender', 'Married', 'Offer', 'Phone Service', 'Multiple
 dfDataset4 = dfDataset[dfDataset['Internet Service'] == 'Yes']
 dfDataset4
 
-cmpntTitle = html.H1(children = "Data Visualization for Telecom Customer Churn", id = "Title")
+cmpntTitle = html.H1(children = "Telecom Customer Churn", id = "Title")
 
 cmpntGraphTitle1 = html.H3(children = "Churned Customer Metrics", className = "graph-title")
 cmpntGraphTitle2 = html.H3(children = "Scatter Plot of Monthly Charge vs Total Charges of Churned Customers by Category", className = "graph-title")
 cmpntGraphTitle3 = html.H3(children = "Number of Churned vs Retained Customers", className = "graph-title")
-cmpntGraphTitle4 = html.H3(children = "Box Plot of the tenure of Churned and Retained Customers", className = "graph-title")
+cmpntGraphTitle4 = html.H3(children = "Box Plot of Tenure of Churned and Retained Customers", className = "graph-title")
 cmpntGraphTitle5 = html.H3(children = "Treemap of Churn Categories and Churn Reasons", className = "graph-title")
 
 graphData2 = px.scatter(dfDataset1, x='Monthly Charge', y='Total Charges',
@@ -148,6 +148,7 @@ cmpntGraph5 = dcc.Graph(figure=graphData5, id='churn-treemap')
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
+server.route("/static/styles/styles.css") 
 
 app.layout = dbc.Container(fluid=True, children=[
     
